@@ -2,10 +2,10 @@
 {% set date = datetime.datetime.strptime(version, "%d%b%Y") %}
 {% set conda_version = "{:%Y.%m.%d}".format(date) %}
 
-{% set git_rev = "a1c7f5babac742297de86d3d7c0b12a84219a7d3" %}
+{% set git_rev = "1ed3a33c80c389b966418e7132537d2aa512c7df" %}
 # increase this by 1 everytime you change the git commit above without also
 # changing the `version`
-{% set git_rev_count = "3" %}
+{% set git_rev_count = "4" %}
 
 {% set build = 0 %}
 
@@ -77,7 +77,7 @@ requirements:
     - cuda-toolkit  {{ cuda_compiler_version }} # [cuda_compiler_version != "None"]
     - fftw * {{ mpi_prefix }}*
     - plumed-metatomic * {{ mpi_prefix }}*
-    - libmetatomic-torch >=0.1.5,<0.2.0
+    - libmetatomic-torch >=0.1.12.rc1,<0.2.0
     # always build against the CPU version of libtorch, we can still pick the
     # cuda one at runtime
     - libtorch * cpu*
@@ -85,9 +85,9 @@ requirements:
   run:
     - {{ mpi }}  # [mpi != 'nompi']
     - plumed-metatomic * {{ mpi_prefix }}*
-    - libmetatomic-torch >=0.1.7,<0.2.0
-    - libmetatensor-torch >=0.8.2,<0.9.0
-    - libmetatensor >=0.1.19,<0.2.0
+    - libmetatomic-torch >=0.1.12.rc1,<0.2.0
+    - libmetatensor-torch >=0.9.0.rc5,<0.10.0
+    - libmetatensor >=0.2.0.rc3,<0.3.0
     - {{ pin_compatible('cuda-version', max_pin='x', min_pin='x') }}  # [cuda_compiler_version != "None"]
     - libcufft  # [cuda_compiler_version != "None"]
 
