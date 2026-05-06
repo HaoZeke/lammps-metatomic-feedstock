@@ -7,7 +7,7 @@
 # changing the `version`
 {% set git_rev_count = "4" %}
 
-{% set build = 1 %}
+{% set build = 2 %}
 
 # Use a higher build number for prefered variants, to ensure that they are
 # picked first by conda's solver, and installed where the platform supports it.
@@ -80,7 +80,7 @@ requirements:
     - cuda-toolkit  {{ cuda_compiler_version }} # [cuda_compiler_version != "None"]
     - fftw * {{ mpi_prefix }}*
     - plumed-metatomic * {{ mpi_prefix }}*
-    - libmetatomic-torch >=0.1.12.rc1,<0.2.0
+    - libmetatomic-torch >=0.1.12.rc2,<0.2.0
     # always build against the CPU version of libtorch, we can still pick the
     # cuda one at runtime
     - libtorch * cpu*
@@ -88,7 +88,7 @@ requirements:
   run:
     - {{ mpi }}  # [mpi != 'nompi']
     - plumed-metatomic * {{ mpi_prefix }}*
-    - libmetatomic-torch >=0.1.12.rc1,<0.2.0
+    - libmetatomic-torch >=0.1.12.rc2,<0.2.0
     - libmetatensor-torch >=0.9.0.rc5,<0.10.0
     - libmetatensor >=0.2.0.rc3,<0.3.0
     - {{ pin_compatible('cuda-version', max_pin='x', min_pin='x') }}  # [cuda_compiler_version != "None"]
