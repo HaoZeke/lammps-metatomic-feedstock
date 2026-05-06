@@ -47,6 +47,8 @@ source:
   git_url: https://github.com/metatensor/lammps.git
   git_rev: {{ git_rev }}
   depth: 1
+  patches:
+    - metatomic-rc-cmake-versions.patch
 
 
 build:
