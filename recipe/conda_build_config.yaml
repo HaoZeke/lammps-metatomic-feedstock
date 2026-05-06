@@ -21,5 +21,10 @@ channel_targets:
   - metatensor main
 
 channel_sources:
-  - metatensor
-  - conda-forge
+  - metatensor,conda-forge
+
+libtorch:
+  - "2.10"
+
+pytorch:
+  - "2.10"
