@@ -49,6 +49,7 @@ source:
   depth: 1
   patches:
     - metatomic-rc-cmake-versions.patch
+    - metatomic-rc-add-data-overload.patch
 
 
 build:
